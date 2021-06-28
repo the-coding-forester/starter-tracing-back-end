@@ -3,9 +3,13 @@ const { nanoid } = require("nanoid");
 
 const level = process.env.LOG_LEVEL || "info"
 
+const nodeEnv = process.env.node_Env || 'development'
+const prettyPrint = nodeENV === "development"
+
 const logger = pinoHttp({
   genReqId: (request) => request.headers['x-request-id'] || nanoid(),
-  level
+  level,
+  prettyPrint
 });
 
 module.exports = logger;
