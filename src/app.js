@@ -1,5 +1,4 @@
 const express = require("express");
-const pinoHttp = require('pino-http');
 const cors = require("cors");
 
 const articlesRouter = require("./articles/articles.router");
@@ -8,7 +7,6 @@ const notFound = require("./errors/notFound");
 
 const app = express();
 
-app.use(pinoHttp());
 app.use(cors());
 app.use(express.json());
 
